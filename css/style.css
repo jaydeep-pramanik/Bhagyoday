@@ -2696,3 +2696,130 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================
+   PRELOADER
+========================= */
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg,
+      #5c0000 0%,
+      #8B0000 50%,
+      #2b0000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  overflow: hidden;
+}
+
+.preloader-content {
+  text-align: center;
+}
+
+.logo-circle {
+  width: 120px;
+  height: 120px;
+  border: 3px solid rgba(212, 175, 55, 0.3);
+  border-top: 3px solid #D4AF37;
+  border-radius: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateRing 2s linear infinite;
+}
+
+.inner-circle {
+  width: 70px;
+  height: 70px;
+  background: #D4AF37;
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+.brand-name {
+  margin-top: 25px;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  color: white;
+  font-family: "Playfair Display", serif;
+  animation: fadeUp 1.2s ease;
+}
+
+.brand-subtitle {
+  color: #D4AF37;
+  letter-spacing: 3px;
+  font-size: 14px;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.loading-bar {
+  width: 260px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  overflow: hidden;
+  margin: 30px auto 15px;
+}
+
+.loading-progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      #D4AF37,
+      #FFD700);
+  animation: loadingBar 3s ease forwards;
+}
+
+.loading-text {
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+@keyframes rotateRing {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  }
+
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.9);
+  }
+}
+
+@keyframes loadingBar {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

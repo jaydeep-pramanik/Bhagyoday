@@ -352,3 +352,23 @@
   function clearErr(id) { var el = document.getElementById(id); if (el) el.textContent = ''; }
 
 })();
+
+window.addEventListener("load", () => {
+
+  const preloader = document.getElementById("preloader");
+
+  setTimeout(() => {
+
+    preloader.style.transition =
+      "opacity 0.8s ease, visibility 0.8s ease";
+
+    preloader.style.opacity = "0";
+    preloader.style.visibility = "hidden";
+
+    setTimeout(() => {
+      preloader.remove();
+    }, 800);
+
+  }, 2500);
+
+});
