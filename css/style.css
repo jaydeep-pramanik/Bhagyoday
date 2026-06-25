@@ -47,6 +47,10 @@ body {
   overflow-x: hidden;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -324,6 +328,10 @@ textarea {
   font-weight: 500;
 }
 
+.nav {
+  backdrop-filter: blur(15px);
+}
+
 .nav-list {
   display: flex;
   align-items: center;
@@ -350,6 +358,11 @@ textarea {
   background: var(--gold);
   border-radius: 2px;
   transition: left 0.3s, right 0.3s;
+}
+
+.nav-link:hover {
+  color: #D4AF37;
+  padding-left: 10px;
 }
 
 .nav-link:hover,
@@ -2540,116 +2553,55 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding: 3.5rem 0;
-  }
 
   .hamburger {
     display: flex;
+    position: relative;
+    z-index: 1200;
   }
 
   .nav {
     position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
-    width: 280px;
-    background: #0d0000;
-    transform: translateX(100%);
-    transition: transform var(--transition);
-    z-index: 1050;
-    padding: 5rem 2rem 2rem;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg,
+        #0d0000,
+        #4a0000,
+        #6b0000);
+    transition: all .4s ease;
+    z-index: 1100;
+    padding: 90px 30px 30px;
     overflow-y: auto;
   }
 
   .nav.open {
-    transform: translateX(0);
+    right: 0;
   }
 
   .nav-list {
+    display: flex;
     flex-direction: column;
+    width: 100%;
     align-items: flex-start;
-    gap: 0;
+  }
+
+  .nav-list li {
+    width: 100%;
   }
 
   .nav-link {
     display: block;
-    padding: 0.85rem 0;
-    font-size: 1.05rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 0;
+    width: 100%;
+    padding: 18px 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
   }
 
-  .nav-link::after {
-    display: none;
-  }
-
-  .hero-content {
-    padding: 6rem 0 4rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .why-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .dishes-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .rooms-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .facilities-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .gal-item.gal-wide {
-    grid-column: span 1;
-  }
-
-  .about-info-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .cta-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .qf-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .reviews-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .quick-ct-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .about-badge-years {
-    right: 0;
-    top: 1.5rem;
+  .logo {
+    position: relative;
+    z-index: 1200;
   }
 }
 
@@ -2695,6 +2647,22 @@ textarea {
   .values-grid {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width:480px) {
+
+  .logo-main {
+    font-size: 1rem;
+  }
+
+  .logo-sub {
+    font-size: .45rem;
+  }
+
+  .header {
+    padding: .8rem 0;
+  }
+
 }
 
 /* =========================
